@@ -1,0 +1,65 @@
+//varaibles
+$bg-tooltip: #FFFCF4;
+$bg-progress-bar: #FAB133;
+$bg-btn: #FAB133;
+
+//styles
+.introjs-nextbutton {
+  background-color: $bg-btn !important;
+  color: transparent !important;
+  text-shadow: 0 0 0 white !important;
+}
+
+.introjs-prevbutton {
+  color: transparent !important;
+  text-shadow: 0 0 0 $bg-btn !important;
+  border: none !important;
+  background-color: #fff !important;
+}
+
+.introjs-donebutton {
+  color: transparent !important;
+  text-shadow: 0 0 0 white !important;
+}
+
+.introjs-tooltip {
+  background-color: $bg-tooltip !important;
+  color: #000 !important;
+}
+
+.introjs-progressbar {
+  background-color: $bg-progress-bar !important;
+}
+
+.introjs-arrow.right {
+  @media (min-width:421px) {
+    border-left-color: $bg-tooltip !important;
+  }
+}
+
+.introjs-arrow.bottom {
+  @media (max-width:420px) {
+    border-top-color: $bg-tooltip !important;
+  }
+}
+
+.introjs-disabled {
+  display: none !important;
+}
+
+.introjs-tooltiptext {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+.introjs-helperLayer {
+  z-index: 10 !important; //overrided this style so as to make the elements inside clickable
+}
+
+.introjs-overlay {
+  display: none;
+}
+
+.introjs-showElement{
+  pointer-events: none;
+}

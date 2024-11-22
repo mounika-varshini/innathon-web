@@ -1,0 +1,419 @@
+@import "./variables.scss";
+
+.jumbotron {
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+/*breadcrumb overrides*/
+.breadcrumb {
+  margin-bottom: 0;
+  padding: 0.25rem 1rem;
+  background-color: transparent !important;
+  align-items: center;
+}
+
+/*forms*/
+
+// .form-control,
+// .md-form label,
+// .md-form mdb-select label
+// label {
+//   font-size: 0.9rem !important;
+// }
+
+/* for date */
+.md-form .prefix ~ mdb-select {
+  // margin-left: 2.5rem;
+  width: calc(100% - 40px);
+}
+
+.md-form .prefix ~ mdb-date-picker {
+  input {
+    margin-left: 2.5rem;
+    width: calc(100% - 2.5rem);
+  }
+
+  label {
+    margin-left: 2.5rem;
+  }
+}
+
+.text-center p {
+  margin: 10px;
+}
+
+.btn-menu-toggler {
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.md-form label.active-label {
+  color: #757575;
+  transform: translateY(-14px) scale(0.8);
+}
+
+/* To Fix MDB Upgrade Issue
+   Drop down menu in top menu is not shown when Side menu is visible*/
+.dropdown.show .dropdown-menu {
+  display: block !important;
+}
+
+mdb-select.mdb-select-outline .multiple .value,
+mdb-select.mdb-select-outline .single .value {
+  // line-height: 16px;
+  line-height: 24px;
+  font-size: 0.85rem;
+}
+
+.form-check .form-check-label {
+  transform: translateY(0) !important;
+}
+
+.md-form label {
+  left: auto;
+}
+
+.picker label,
+mdb-date-picker label {
+  left: 0 !important;
+}
+
+mdb-select * {
+  // font-family: "Titillium Web", Tahoma, Arial;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+}
+
+mdb-select-dropdown .dropdown-content {
+  min-width: 250px;
+}
+
+mdb-select-dropdown {
+  box-sizing: border-box;
+  // font-family: Sans-Serif;
+  font-family: Lato, sans-serif;
+  color: #4285f4;
+  font-size: 19.2px;
+  word-break: break-all;
+  font-weight: 400;
+}
+
+/*Select Control Validation overrides*/
+mdb-select-dropdown .options {
+  height: 180px;
+
+  @media (max-height: 700px) {
+    height: 145px;
+  }
+}
+
+mdb-select.validate-error.ng-invalid.ng-dirty div.single,
+mdb-select.validate-error.ng-invalid.ng-dirty div.multiple {
+  border-bottom: 1px solid #f44336 !important;
+  box-shadow: 0 1px 0 0 #f44336 !important;
+}
+
+/*Navigation*/
+.side-nav .collapsible .fab,
+.side-nav .collapsible .far,
+.side-nav .collapsible .fas {
+  font-size: 1rem !important;
+  width: 1.2rem;
+}
+
+.side-nav.side-nav-light {
+  a,
+  h5 {
+    color: black !important;
+  }
+}
+
+.navbar {
+  font-weight: 400;
+  box-shadow: none !important;
+}
+
+.navbar .dropdown-menu a {
+  font-weight: 400;
+}
+
+.fixed-sn main,
+.fixed-sn .page-footer .container-fluid {
+  margin: 0 !important;
+}
+
+// Modal Overrides
+.modal-header,
+.modal-footer {
+  padding: 0.5rem;
+}
+
+.modal-dialog.modal-notify.modal-info .fas,
+.modal-dialog.modal-notify.modal-info .fab,
+.modal-dialog.modal-notify.modal-info .far {
+  color: inherit;
+}
+
+/*for scrolling modals*/
+mdb-modal-container {
+  overflow-y: auto !important;
+}
+
+/*mdb table*/
+.table {
+  // border-collapse: separate !important;
+  color: #3e5164 !important;
+}
+
+.table-editable table td,
+table td {
+  font-weight: 400 !important;
+  font-size: 0.85rem;
+}
+
+// .table-bordered,
+// .table-bordered td,
+// .table-bordered th {
+//   border: 1px solid #dee2e6 !important;
+// }
+
+// Table styles, TODO: Update these using themes
+// thead {
+//   background-color: #d1d1d1;
+// }
+
+table.table td {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+table.table th {
+  // padding-top: .5rem !important;
+  // padding-bottom: .5rem !important;
+  padding: 0.2rem 0.2rem 0.2rem 0.1rem !important;
+  font-weight: 500 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background-color: var(--primary-color);
+  color: var(--text-accent-darker-color);
+}
+
+table.table th:first-child {
+  border-top-left-radius: 14px !important;
+}
+
+table.table th:last-child {
+  border-top-right-radius: 14px !important;
+}
+
+.table th,
+.table td {
+  border-top: 1px solid #dcdef1 !important;
+  vertical-align: middle !important;
+}
+
+table.table-hover tbody tr:hover {
+  transition: 0.25s !important;
+  background-color: rgba(209, 219, 226, 0.18) !important;
+}
+
+// fab button
+.fixed-action-btn label {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  font-size: 0.7rem;
+}
+
+.fixed-action-btn:hover label {
+  visibility: visible;
+  opacity: 1;
+}
+
+.toast-opacity {
+  opacity: 0.8 !important;
+}
+
+// Remove top menu items shadow
+.dropdown .dropdown-menu.dropdown-primary .dropdown-item.active,
+.dropdown .dropdown-menu.dropdown-primary .dropdown-item:active,
+.dropdown .dropdown-menu.dropdown-primary .dropdown-item:hover,
+.dropleft .dropdown-menu.dropdown-primary .dropdown-item.active,
+.dropleft .dropdown-menu.dropdown-primary .dropdown-item:active,
+.dropleft .dropdown-menu.dropdown-primary .dropdown-item:hover,
+.dropright .dropdown-menu.dropdown-primary .dropdown-item.active,
+.dropright .dropdown-menu.dropdown-primary .dropdown-item:active,
+.dropright .dropdown-menu.dropdown-primary .dropdown-item:hover,
+.dropup-material .dropdown-menu.dropdown-primary .dropdown-item.active,
+.dropup-material .dropdown-menu.dropdown-primary .dropdown-item:active,
+.dropup-material .dropdown-menu.dropdown-primary .dropdown-item:hover {
+  box-shadow: none !important;
+  color: #4a4a4a !important;
+}
+
+// For modal header rounder corners
+.modal-dialog .modal-content {
+  border-radius: $border-radius !important;
+}
+
+.modal-dialog .modal-content .modal-header {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+
+// For master menu
+.double-nav .dropdown .dropdown-menu {
+  left: auto !important;
+}
+
+mdb-card.card.card-cascade {
+  border-radius: $border-radius;
+  // box-shadow: $box-shadow;
+  border: 1px solid rgb(122 123 151 / 20%);
+}
+
+.btn.btn-sm {
+  border-radius: $button-border-radius;
+}
+
+// table header is active shown when side menu is expanded
+.sticky-top {
+  z-index: 900 !important;
+}
+
+// tabs
+mdb-tabset {
+  ul {
+    justify-content: flex-end;
+  }
+
+  a {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
+
+.tab-navbar {
+  z-index: 9;
+  padding-bottom: 4px !important;
+  padding-top: 4px !important;
+
+  .nav-item {
+    .inn-tab-link {
+      padding-bottom: 12px;
+      padding-right: 12px;
+      padding-left: 12px;
+    }
+  }
+
+  .icon {
+    margin-right: 0.1rem !important;
+  }
+}
+
+// side nav
+.side-nav {
+  i.mdb-accordion-indicator.rotate-icon {
+    visibility: hidden;
+  }
+
+  .collapsible {
+    .card .card-header a:hover {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      margin-right: 10px;
+
+      i.mdb-accordion-indicator.rotate-icon {
+        visibility: visible;
+      }
+    }
+
+    .card.active .card-header a {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      margin-right: 10px;
+
+      i.mdb-accordion-indicator.rotate-icon {
+        visibility: visible;
+      }
+    }
+
+    .card-body li {
+      margin-right: 10px;
+
+      a {
+        padding: 0;
+        width: 100%;
+        padding-left: 3rem;
+      }
+
+      a.active {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+
+      a:hover {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+    }
+  }
+}
+
+// drop downs
+mdb-select-dropdown .dropdown-content {
+  border-radius: 0.5rem;
+}
+
+mdb-select-dropdown .dropdown-content li > a,
+mdb-select-dropdown .dropdown-content li > span {
+  font-family: Lato, sans-serif;
+}
+
+mdb-toast-component {
+  margin-right: -1rem !important;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+// Modal Overrides
+.modal-header,
+.modal-footer {
+  padding: 0.5rem;
+}
+
+.progress-bar {
+  background-color: var(--primary-color);
+}
+
+mdb-popover-container {
+  border-radius: 15px !important;
+}
+
+.popover-header {
+  border-bottom: 1px solid #ebebeb;
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
+
+.fa,
+.fal,
+.fad,
+.fab {
+  color: var(--primary-color) !important;
+}
+
+a {
+  .fa,
+  .fas,
+  .far,
+  .fal,
+  .fad,
+  .fab {
+    color: white !important;
+  }
+}

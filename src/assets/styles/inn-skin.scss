@@ -1,0 +1,209 @@
+// Color stuff go here 
+// refer https://www.materialui.co/colors for colors
+// inn-skin
+$skins: () !default;
+$skins: map-merge(("inn": ("skin-container-color":#f6f6f6, //custom
+      "skin-table-color": #f1f3fb, // changed previous #e1e1e1
+      "skin-primary-color": #fab133,
+      "skin-navbar": #ffffff,
+      // #e4e4e4, // #38597b, // TODO: remove inn-menu
+      "skin-footer-color": #7cebb3, "skin-accent":#f6fafe, //  #33b5e5, #c4c4c4, // card header, form headers and drop down menu buttons // Issue when input is focused
+      "skin-flat": #fff, // side nav background
+      "skin-sidenav-item": #fff, "skin-sidenav-item-hover": #f1f3fb, // #eaeaea,
+      "skin-sidenav-item-active":#e2e7fb,
+      "skin-sidenav-expand-collapse-icon-color": #00000085,
+      "skin-gradient-start": #d31c1c, "skin-gradient-end": #3262e6, "skin-mask-slight": #d5d80c, "skin-mask-light": #5ff16c, "skin-mask-strong": #fff, // side menu mask
+      // "skin-sn-child": #e65100, // expanded menu item hover
+      "skin-btn-primary": #fab133,
+      "skin-btn-secondary": #850440,
+      "skin-btn-default": #808080,
+      "skin-text": #4a4a4a)),
+  $skins);
+@each $skin,
+$data in $skins {
+  .#{$skin}-skin {
+    .main-app-container {
+      // background-color: map-get($data, skin-container-color) !important;
+    }
+
+    .navbar.double-nav a,
+    .btn-menu-toggler {
+      // color: #0e3660;
+
+      &:hover {
+        // color: #38597b;
+        // background: #d8d8d8a8;
+        border-radius: 4px;
+        transition: .2s;
+        box-shadow: 0px 0px 8px 0px #8080807a;
+      }
+    }
+
+    .inn-hamburger-menu .nav-link.active {
+      // background-color: #dfedfb;
+    }
+
+    .table-bordered {
+      border: 1px solid map-get($data, skin-table-color) !important;
+
+      td,
+      th {
+        border: 1px solid map-get($data, skin-table-color) !important;
+      }
+    }
+
+    .inn-background-color {
+      background-color: #2C3C7A;
+    }
+
+    thead,
+    th {
+      background-color: map-get($data, skin-table-color); // do not use important as it will override the custom class in inn-table
+    }
+
+    .ag-header {
+      background-color: map-get($data, skin-table-color) !important;
+      color: #616a77 !important; //added new font-color
+    }
+
+    // .modal-header {
+    //   background-color: #fff !important;
+    // }
+
+    // .inn-container {
+    //   background-color: #fff;
+    // }
+
+    .title-container {
+      background-color: #fff;
+      border-color: #54596b33;
+    }
+
+    .data-card {
+      background: #fff;
+
+      // &:hover {
+      //   background-color: #d8edff !important;
+      // }
+
+      .header-data-card {
+        background-color: white;
+      }
+    }
+
+    input[type='checkbox']:checked+label:before {
+      border-right: 2px solid #616a77;
+      border-bottom: 2px solid #616a77;
+    }
+
+    // .side-menu {
+
+    //   .side-bar,
+    //   .side-bar-content,
+    //   .search-container,
+    //   .side-bar-list {
+    //     background-color: #fff;
+    //   }
+
+    //   .selected-item {
+    //     background-color: #dfe4f7;
+    //   }
+
+    //   .side-menu-item:hover {
+    //     background-color: map-get($data, skin-sidenav-item-hover) !important;
+    //   }
+
+    //   .md-accordion .card-body a:hover {
+    //     color: #3bb6de;
+    //   }
+    // }
+
+    .tab-navbar {
+      z-index: 9;
+      // background: white;
+      padding-bottom: 4px !important;
+      padding-top: 4px !important;
+
+      .nav-item {
+        .inn-tab-link {
+          // background-color: white;
+          // color: #10707f;
+          padding-bottom: 12px;
+          padding-right: 12px;
+          padding-left: 12px;
+        }
+
+        .inn-tab-active {
+          // background-color: white;
+          color: #10707f;
+          // padding-bottom: 12px;
+          // border-bottom: 2px solid #10707f;
+        }
+      }
+
+      .icon {
+        margin-right: 0.1rem !important;
+      }
+    }
+  }
+
+  .inn-z-depth-9 {
+    z-index: 9 !important;
+  }
+
+  .inn-z-depth-8 {
+    z-index: 8 !important;
+  }
+
+  mdb-tabset {
+    ul {
+      background-color: map-get($data, skin-table-color) !important;
+    }
+
+    a {
+      color: #616a77 !important;
+    }
+
+    .active {
+      a {
+        border-color: map-get($data, skin-navbar) !important;
+      }
+    }
+
+    .inn-tab-content-class {
+      box-shadow: none;
+      border: 1px solid map-get($data, skin-table-color) !important;
+    }
+  }
+
+  // side nav 
+  .side-nav {
+    i.mdb-accordion-indicator.rotate-icon {
+      color: map-get($data, skin-sidenav-expand-collapse-icon-color)
+    }
+
+    .collapsible {
+      .card-body li {
+        margin-right: 10px;
+
+        a {
+          background-color: white !important;
+        }
+
+        a.active {
+          background-color: map-get($data, skin-sidenav-item-active) !important;
+        }
+
+        a:hover {
+          background-color: map-get($data, skin-sidenav-item-hover) !important;
+        }
+      }
+    }
+  }
+
+  // drop down
+  mdb-select-dropdown .dropdown-content li>a,
+  mdb-select-dropdown .dropdown-content li>span {
+    color: map-get($data, skin-text) !important;
+  }
+}

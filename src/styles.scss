@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/common.scss";
+@import "./assets/styles/overrides.scss";
+@import "./assets/styles/variables.scss";
+@import "./assets/styles/theme.scss";
+@import "./assets/styles/toast.scss";
+@import "assets/styles/inn-skin.scss";
+@import "assets/styles/popover.scss";
+
+/*quill styles are added to support ngx-quill package */
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+
+//introjs stylesheet
+@import "./assets/styles/introjs.styles.scss";
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Light.ttf") format("truetype");
+  /* Super Modern Browsers */
+  // url('assets/fonts/EuclidCircularB-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+  // url('assets/fonts/EuclidCircularB-Regular.ttf') format('truetype'),/* Safari, Android, iOS */
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Black.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: lato, sans-serif;
+  font-weight: 400;
+  font-size: 11.5px;
+}
+
+body {
+  margin: 0;
+}
+
+@media only screen and (min-width: 2000px) {
+
+  html,
+  body {
+    font-size: 1rem;
+  }
+}
+
+.inn-select {
+  margin-bottom: 8px;
+}
+
+.report-container {
+  height: 75vh;
+}
+
+::-webkit-scrollbar {
+  width: 0.6em;
+  height: 0.7em;
+}
+
+.table-bordered {
+  border: 1px solid #f1f3fb !important;
+
+  td,
+  th {
+    border: 1px solid #f1f3fb !important;
+  }
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}

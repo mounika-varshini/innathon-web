@@ -1,0 +1,1282 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@import "./variables.scss";
+// @import "~swiper/css";
+// @import "~swiper/css/navigation";
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --swiper-navigation-size: 20px;
+}
+
+.swiper-button-prev {
+  color: rgba(0, 0, 0, 0.5) !important;
+  background-color: #fff !important;
+  padding: 15px !important;
+  border: 1px solid darkslategrey;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.swiper-button-next {
+  color: rgba(0, 0, 0, 0.5) !important;
+  background-color: #fff !important;
+  padding: 15px !important;
+  border: 1px solid darkslategrey;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.swiper-button-prev:after {
+  font-weight: 800 !important;
+}
+
+.swiper-button-next:after {
+  font-weight: 800 !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// #region material overrides
+
+// material select options
+.mat-mdc-option,
+.mat-mdc-menu-item {
+  line-height: 3rem !important;
+  min-height: 3rem !important;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base,
+.mat-mdc-radio-button .mdc-radio,
+.mat-mdc-checkbox .mdc-checkbox,
+.mat-mdc-form-field-icon-prefix>.mat-icon,
+.mat-mdc-form-field-icon-suffix>.mat-icon {
+  padding: 0.25rem !important;
+}
+
+.mdc-checkbox .mdc-checkbox__background {
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0.25rem !important;
+}
+
+// added this to align 'options' icon on mat-card, check if it has any impact on other mat icons
+// .mat-icon {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+.mat-icon {
+  height: 2rem !important; //using rems to fit for the larger screens was 24px
+  width: 2rem !important;
+}
+
+.mat-mdc-form-field-infix {
+  // padding: 0.79em 0 0.57em !important;
+  padding: 0.25em 0 0.25em !important;
+  border: 0 !important;
+  min-height: 2.5rem !important;
+  align-items: center;
+  display: flex;
+}
+
+// to hide new material field
+.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  display: none;
+}
+
+.theme-light .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--secondary-color);
+}
+
+// .mat-form-field-appearance-outline .mdc-notched-outline .mdc-notched-outline__leading,
+// .mat-form-field-appearance-outline .mdc-notched-outline .mdc-notched-outline__notch,
+// .mat-form-field-appearance-outline .mdc-notched-outline .mdc-notched-outline__trailing {
+//   border: 0px !important;
+// }
+
+.mat-form-field-appearance-outline .mat-mdc-select-arrow-wrapper {
+  transform: none !important;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0 !important; // instead apply padding bottom to control container which has both label and control
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+  // top: 0 !important;
+}
+
+// add top to icons in datepicker
+mat-datepicker-toggle .mat-mdc-icon-button {
+  // top: 0.3em;
+}
+
+.dialog-side-panel .mat-mdc-dialog-container {
+  max-height: 100vh !important;
+}
+
+// .mat-mdc-dialog-container {
+//   max-height: 90vh !important;
+// }
+
+.mdc-dialog__container {
+  width: 100%;
+}
+
+// mat dialog padding
+.mat-mdc-dialog-surface {
+  padding: 1.25rem;
+}
+
+mat-dialog-container,
+mat-dialog-content {
+  //TODO: use inn-flex-container
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  // END
+  max-height: 90vh !important;
+  position: relative;
+}
+
+.mat-mdc-dialog-content {
+  padding: 0 !important;
+}
+
+// to avoid extra space in dialogs
+.mat-mdc-button-touch-target {
+  height: 2rem !important;
+  width: 2rem !important;
+}
+
+// app-close-button {
+//   position: absolute;
+//   right: 2rem;
+// }
+
+// mat-dialog-content {
+//   // TODO: below to be inherited form .inn-flex-scroll
+//   // flex: 1 0 0;
+//   // overflow: auto;
+//   // END
+// }
+
+mat-dialog-actions {
+  // border-top: 1px solid $border-color;
+  // background: #f8f8f8;
+  display: flex;
+  justify-content: end;
+  min-height: auto !important;
+}
+
+// mat-dialog-content {
+//   margin-top: 0.6rem !important;
+
+//   *div {
+//     padding-bottom: 0.3rem !important;
+//   }
+// }
+
+mat-dialog-title {
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  color: var(--secondary-color) !important;
+  // padding: 1rem;
+  border-bottom: 1px solid lightgrey;
+  // margin-bottom: 10px;
+
+  .mat-dialog-sub-title {
+    font-size: 1rem !important;
+  }
+}
+
+// date control icon size
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-mdc-icon-button,
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-mdc-icon-button {
+  width: 2em !important;
+  height: 2em !important;
+}
+
+mat-form-field {
+  flex: 1;
+}
+
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//   top: 0 !important;
+// }
+
+// Radio button
+.mat-radio-inner-circle,
+.mat-radio-outer-circle {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.mat-radio-button .mat-radio-ripple {
+  height: 36px !important;
+  width: 36px !important;
+}
+
+//to override the height when mat panel got expanded
+.mat-expansion-panel-header.mat-expanded {
+  height: 3.5rem !important;
+  background-color: var(--primary-lighter-color) !important;
+  border-bottom: 1px solid #c4c4c4;
+  border-radius: 0px;
+
+  // section editors in expanded panel headers should not have background color: quality and safety forms
+  .mdc-text-field--filled {
+    background-color: transparent !important;
+  }
+}
+
+.mat-expansion-panel-body,
+.mat-expansion-panel-header {
+  padding: 0 $margin !important;
+}
+
+mat-expansion-panel {
+  box-shadow: none !important;
+  border: 1px solid $border-color;
+  border-radius: $border-radius !important;
+  margin: 4px !important;
+}
+
+.mat-expansion-panel-content {
+  font-size: inherit !important;
+}
+
+mat-panel-title {
+  //color: var(--accent-darker-color) !important;
+  font-size: 1rem;
+}
+
+// Specific component overrides, pieces that are not in line with the general theming
+
+// border for flat primary
+.mat-flat-button.mat-primary {
+  border: 1px solid var(--primary-color);
+}
+
+// Handle buttons appropriately, with respect to line-height
+// .mat-mdc-raised-button,
+// .mat-mdc-outlined-button,
+// .mat-flat-button {
+//   padding: 0 1.15em;
+//   // margin: 0 0.65em;
+//   min-width: 3em;
+//   line-height: 2rem !important;
+//   font-size: 1rem !important;
+// }
+
+// .mat-mdc-button.mat-mdc-button-base,
+.mat-mdc-button.mat-mdc-button-base,
+.mat-mdc-raised-button.mat-mdc-button-base,
+.mat-mdc-unelevated-button.mat-mdc-button-base,
+.mat-mdc-outlined-button.mat-mdc-button-base {
+  padding: 0 1.15em;
+  // margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 2rem !important;
+  font-size: 1rem !important;
+  height: 2.56rem !important;
+}
+
+.mat-mdc-outlined-button,
+.mat-mdc-raised-button {
+  border: 1px solid lightgray !important;
+  justify-content: center !important;
+  align-items: center !important;
+  // padding: 0.1rem 1.2rem !important;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1) !important;
+  // letter-spacing: 0.04em !important;
+}
+
+// icons on cards and buttons
+.mat-mdc-icon-button.mat-mdc-button-base {
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  padding: 0 !important;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.mdc-text-field,
+// for all types, if this works remove below two
+.mdc-text-field--filled,
+.mdc-text-field--outlined {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+.btn-sm {
+  height: 1.75rem !important;
+}
+
+.mat-mdc-raised-button {
+  &.border-radius-1 {
+    border-radius: 0.4rem !important;
+  }
+
+  &.text-bold {
+    font-weight: bold !important;
+  }
+}
+
+.btn-sm {
+
+  &.mat-mdc-raised-button,
+  &.mat-mdc-outlined-button,
+  &.mat-flat-button {
+    font-size: 0.85rem !important;
+    line-height: 1rem !important;
+  }
+}
+
+.mat-primary {
+
+  &.mat-mdc-raised-button,
+  &.mat-flat-button {
+    color: var(--text-primary-color) !important;
+  }
+}
+
+.mat-progress-bar {
+  box-shadow: 0px 0px 4px 0px #232f341a;
+}
+
+.theme-light .mat-progress-bar-buffer {
+  background-color: #ffffff !important;
+}
+
+.mat-standard-chip {
+  padding: 0.5em 0.85em;
+  min-height: 2.5em;
+}
+
+.transparent-bg {
+  background-color: transparent !important;
+}
+
+.material-icons {
+  font-size: 24px;
+  font-family: "Material Icons", "Material Icons";
+
+  .mat-badge-content {
+    font-family: "lato";
+  }
+}
+
+.mat-select-arrow {
+  // color: var(--primary-color) !important;
+  border-left: 15px solid transparent !important;
+  border-right: none !important;
+  border-top: 10px solid transparent !important;
+  border-image-source: url("../../assets/icons/down-arrow.svg");
+  border-image-repeat: stretch;
+  margin: 0 !important;
+}
+
+// Dropdown
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: $border-radius 0 0 $border-radius !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start,
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  min-width: $border-radius !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0 $border-radius $border-radius 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start,
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border: 1px solid var(--border-color);
+}
+
+// app-inn-table button {
+//   @extend .btn-sm;
+//   border-radius: 25px !important;
+// }
+
+table {
+  border-spacing: 0px !important;
+}
+
+.mat-standard-chip {
+  padding: 0.5em 0.85em;
+  min-height: 2.5em;
+}
+
+.material-icons {
+  font-size: 24px;
+  font-family: "Material Icons", "Material Icons";
+
+  .mat-badge-content {
+    font-family: "lato";
+  }
+}
+
+.mat-drawer-inner-container {
+  // background: #2d3d43 !important;
+  border-right: 1px solid #ededed;
+}
+
+.theme-dark .mat-drawer-inner-container {
+  border-right: 1px solid #515151;
+}
+
+.theme-light .mat-drawer {
+  background-color: #fff !important;
+}
+
+.mat-drawer-side {
+  border-right: 0 !important;
+}
+
+.mat-toolbar:not(.clock-face__clock-hand, .timepicker-header, .clock-face__center) {
+  height: 3rem !important;
+  font-size: 1rem !important;
+}
+
+mat-drawer-content .mat-toolbar:not(.main-nav) {
+  background: transparent !important;
+}
+
+.mat-mdc-card {
+  // border-radius: $border-radius !important;
+  padding: 1rem;
+
+  .mat-mdc-card-content {
+    padding: 0 !important;
+  }
+
+  .mat-mdc-card-title {
+    font-size: 1.1rem !important;
+  }
+
+  &.cursor-pointer:hover,
+  &.card-box:hover {
+    border: 1px solid var(--primary-color) !important;
+    box-shadow: 0 0 4px var(--primary-light-color) !important;
+  }
+}
+
+.mat-menu-panel {
+  border-radius: $border-radius !important;
+}
+
+.switch label input[type="checkbox"]:checked+.lever:after {
+  background-color: var(--primary-color);
+}
+
+.mat-card:not([class*="mat-elevation-z"]) {
+  // box-shadow: 0 2px 2px -1px #fab13338, 0 1px 1px 0 #fab13326, 0 2px 4px 0 #fab13399 !important;
+
+  &:hover {
+    // box-shadow: 0 2px 2px -1px #fab13338, 0 1px 1px 0 #fab13326, 0 5px 5px 0 #fab13399 !important;
+  }
+}
+
+.theme-light {
+  .mat-drawer-container {
+    background-color: #ffffff !important;
+  }
+
+  .modal-header {
+    background: #ffffff !important;
+  }
+
+  .mat-card-sub-circle,
+  .mat-card-circle {
+    // background: #2d3d43 !important;
+    background-color: #fcfcfc !important;
+  }
+
+  .side-bar,
+  .search-container {
+    background: #fcfcfc !important;
+    color: var(--accent-darker-color) !important;
+  }
+}
+
+// .introjs-tooltiptext {
+//   color: var(--secondary-color) !important;
+// }
+
+.introjs {
+  &-tooltip-title {
+    color: var(--secondary-color) !important;
+    font-size: large;
+  }
+
+  &-tooltiptext {
+    color: var(--secondary-color) !important;
+    font-size: small;
+  }
+
+  // .mat-mdc-card {
+  //   border: 1px solid $border-color !important; // #efefef !important;
+  // }
+}
+
+.theme-dark {
+
+  inn-search-input mat-icon,
+  .select-all-mat-checkbox {
+    color: #f9f9f9;
+  }
+
+  .local-chat-message {
+    background: #1b282c;
+  }
+
+  .side-bar,
+  .search-container {
+    background: #2d3d43 !important;
+    color: #fcfcfc !important;
+  }
+
+  svg.node-container text,
+  // menu icons
+  // .menu-item .svg-icon path,
+  .info-btn svg path,
+  .main-nav .nav-link {
+    fill: #ffffff !important;
+  }
+
+  .svg-icon path {
+    // fill: #ffffff !important;
+  }
+
+  // tree node
+  svg.node-container .node {
+    fill: #232f34 !important;
+  }
+
+  // custom text elements
+  .nav-small-text,
+  .nav-text,
+  .font-smaller {
+    color: #fcfcfc !important;
+  }
+
+  // inn-table
+  app-inn-table table tr {
+    background-color: #2d3d43 !important;
+    color: #ffffff !important;
+  }
+
+  //mdb table
+  .table {
+    color: #f9f9f9 !important;
+
+    tbody,
+    tr {
+      background-color: #2d3d43 !important;
+    }
+
+    .row-selected {
+      color: rgba(33, 33, 33, 0.87) !important;
+      background-color: var(--secondary-light-color) !important;
+    }
+  }
+
+  // mdb modal
+  .modal-content,
+  .modal-header {
+    background: #2d3d43 !important;
+    color: white;
+  }
+
+  .close {
+    color: #ffffff !important;
+    text-shadow: 0 1px 0 #1a0707 !important;
+  }
+
+  .progress {
+    background-color: #232f34 !important;
+  }
+
+  .header {
+    background-color: #232f34 !important;
+  }
+
+  circle-progress svg text tspan {
+    fill: #f9f9f9 !important;
+  }
+
+  .mat-card-sub-circle,
+  .mat-card-circle {
+    background: #2d3d43 !important;
+  }
+
+  .introjs {
+    &-tooltip-title {
+      color: #fcfcfc !important;
+      font-size: large;
+    }
+
+    &-tooltiptext {
+      color: #fcfcfc !important;
+      font-size: small;
+    }
+
+    &-tooltip {
+      background-color: #2d3d43 !important;
+    }
+
+    &-skipbutton {
+      color: #fcfcfc !important;
+    }
+  }
+}
+
+// #endregion
+
+// #region bootstrap overrides
+button:focus {
+  outline: 0 !important;
+}
+
+pre {
+  font: 300 16px / 32px lato, sans-serif;
+  color: currentColor !important;
+}
+
+// #endregion
+
+// #region third-party
+.xng-breadcrumb-trail {
+  margin-bottom: 0 !important;
+  color: var(--scondary-color) !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  display: inline-block !important;
+  width: 250px !important;
+  vertical-align: middle !important;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.xng-breadcrumb-separator {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  color: var(--accent-lighter-color) !important;
+}
+
+.xng-breadcrumb-link {
+  color: var(--secondary-color) !important;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+// #endregion
+
+// breadcrumb bootstrap override
+
+.breadcrumb-item.active {
+  //color: var(--primary-color);
+}
+
+.table {
+  height: 100%;
+}
+
+//white background for table
+.table tbody {
+  // display: block;
+  background-color: white;
+  height: 100%;
+  overflow: auto;
+  // border-radius: 0px 0px 1rem 1rem;
+}
+
+// end of breadcrumb bootstrap override
+//*global and local rfi forms ovverride
+//global  rfi forms
+.save-changes-button {
+  width: 82px;
+  height: 24px;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+//local rfi forms ovverride
+.view-edit-button {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+
+// TODO: these should be moved to common.scss
+// local add rfi,add submittal,add changeorder button css
+// localRfiViewComponent,localSubmittalsViewComponent,localChangeOrderViewComponent
+.add-new-log-button {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  box-sizing: border-box;
+  border-radius: 16px;
+  display: flex;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 6px;
+  color: #ffffff;
+}
+
+//submit and update buttons of local rfi forms
+.submit-form-data,
+.update-form-data {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+  color: #ffffff;
+}
+
+//quill editor override for dark mode
+.ql-snow .ql-stroke,
+.ql-snow .ql-picker,
+.ql-editor.ql-blank::before {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ql-snow .ql-fill {
+  fill: rgba(0, 0, 0, 0.5);
+  stroke: none;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:focus .ql-stroke,
+.ql-snow .ql-toolbar button:focus .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+  color: var(--primary-color) !important;
+  stroke: var(--primary-color) !important;
+}
+
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: var(--primary-color) !important;
+  stroke: var(--primary-color) !important;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+  fill: var(--primary-color) !important;
+}
+
+.theme-dark .ql-snow .ql-stroke,
+.theme-dark .ql-snow .ql-picker,
+.theme-dark .ql-editor.ql-blank::before {
+  fill: none;
+  stroke: #e6e6e6;
+  color: #e6e6e6;
+}
+
+.theme-dark .ql-snow .ql-fill {
+  fill: #e6e6e6;
+  stroke: none;
+}
+
+.theme-dark .ql-snow .ql-picker-options,
+.theme-dark .ql-snow .ql-picker-options .ql-picker-item {
+  color: #e6e6e6;
+  background-color: #2d3d43;
+}
+
+.ql-toolbar.ql-snow {
+  border-radius: $border-radius !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-bottom: none;
+}
+
+.ql-toolbar.ql-snow+.ql-container.ql-snow {
+  border-radius: $border-radius !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.ql-font {
+  display: none !important;
+}
+
+.ngx-mat-timepicker-control {
+  width: 38px !important;
+  min-width: 32px !important;
+}
+
+.ngx-timepicker,
+.ngx-mat-timepicker {
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+  // padding: 0.5rem 1rem;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ngx-mat-timepicker__toggle {
+  display: flex !important;
+  margin: 0 !important;
+}
+
+.ngx-mat-timepicker-toggle {
+  border: 0 !important;
+}
+
+// .ngx-timepicker-control__arrow {
+//   color: var(--primary-color) !important;
+// }
+
+// .ngx-timepicker-control__arrows {
+//   top: 4px !important;
+//   line-height: 1 !important;
+// }
+
+// .timepicker__actions div:nth-child(1) ngx-material-timepicker-button .timepicker-button {
+//   border: 1px solid var(--primary-color);
+//   color: var(--primary-color);
+//   margin-right: 1rem;
+// }
+
+// .timepicker__actions div:nth-child(2) ngx-material-timepicker-button .timepicker-button {
+//   background-color: var(--primary-color);
+// }
+
+// .period-control__arrow {
+//   color: var(--primary-color) !important;
+// }
+
+// ngx-material-timepicker-content {
+//   --body-background-color: #fff !important;
+//   --button-color: var(--primary-color) !important;
+//   --dial-background-color: var(--primary-color) !important;
+//   --dial-editable-active-color: var(--primary-color) !important;
+//   --clock-face-background-color: #fff !important;
+//   --clock-hand-color: var(--primary-color) !important;
+//   --clock-face-time-active-color: #fff;
+//   --clock-face-time-inactive-color: #6c6c6c;
+//   --clock-face-inner-time-inactive-color: #929292;
+//   --button-color: white !important;
+// }
+
+//*end of global and local rfi forms ovverride
+@mixin typography($config-or-theme) {
+  $config: mat.get-typography-config($config-or-theme);
+  $line-height: mat.line-height($config, input);
+
+  .mat-input-element {
+    height: $line-height * 1em;
+  }
+}
+
+@mixin theme($typography) {
+  @if $typography !=null {
+    @include typography($typography);
+  }
+}
+
+.popover-content {
+  border: 1px solid lightgray;
+  border-radius: 0.5rem 1rem 1rem 1rem;
+  background-color: white;
+  color: black;
+}
+
+.theme-dark .popover-content {
+  background-color: #232f34 !important;
+  border: 1px solid lightgray;
+  border-radius: 0.5rem 1rem 1rem 1rem;
+
+  ol {
+    color: white;
+  }
+
+  ul {
+    color: white;
+  }
+}
+
+.theme-dark .popover-header {
+  background-color: #232f34 !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// .ngx-timepicker-control {
+//   width: 36px !important;
+//   height: 20px !important;
+// }
+
+// .ngx-timepicker-control__arrows {
+//   margin: 0 !important;
+// }
+
+.period-control__arrow {
+  font-size: 0.8rem !important;
+}
+
+.period-control__button {
+  width: 36px !important;
+}
+
+// .ngx-timepicker-control__input,
+// .period-control__button {
+//   font-size: 0.9rem !important;
+// }
+
+// .ngx-timepicker-control__input {
+//   padding: 0 !important;
+//   background-color: transparent !important;
+// }
+ngx-mat-timepicker-field {
+
+  ngx-mat-timepicker-time-control .mat-mdc-form-field-icon-suffix,
+  .ngx-timepicker-control__arrows {
+    display: none !important;
+  }
+
+  .mat-mdc-text-field-wrapper {
+    background-color: transparent !important;
+  }
+
+  .mdc-line-ripple {
+    display: none !important;
+  }
+}
+
+// .ngx-timepicker__time-colon,
+// .period-control__arrow {
+//   margin: 0 !important;
+// }
+
+// ngx-material-timepicker-toggle {
+//   transform: scale(0.7);
+
+//   svg path {
+//     fill: grey !important;
+//   }
+// }
+
+// .theme-dark .ngx-timepicker-control__input {
+//   background-color: transparent !important;
+// }
+
+// .theme-dark .ngx-material-timepicker-toggle {
+//   background-color: white !important ;
+// }
+
+// override tooltip to wrap properly
+.mat-tooltip {
+  word-wrap: break-word !important;
+}
+
+.cdk-overlay-container {
+  z-index: 2 !important;
+}
+
+// override the radio button color
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: var(--primary-color) !important;
+  /*inner circle color change*/
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: var(--primary-color) !important;
+  /*outer ring color change*/
+}
+
+router-outlet+* {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+// TODO: change all fixed-header  classes to inn-flex-containe
+.fixed-header {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+
+.introjs-nextbutton {
+  background-color: #fab133 !important;
+  border: 1px solid lightgray !important;
+  font-size: 0.85rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 14px !important;
+  padding: 0.5rem 1.2rem !important;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: #fcfcfc !important;
+  text-shadow: none !important;
+}
+
+.introjs-prevbutton {
+  background-color: #fcfcfd !important;
+  border: 1px solid lightgray !important;
+  font-size: 0.85rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 14px !important;
+  padding: 0.5rem 1.2rem !important;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: var(--secondary-color) !important;
+  text-shadow: none !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+  // overflow: hidden !important;
+
+  // // background-color: transparent;
+  // // -webkit-background-clip: text; // to apply to only scroll bar
+  // // transition: background-color 700ms;
+  // &:hover {
+  //   // background-color: rgba(0, 0, 0, 0.12);
+  //   overflow: overlay !important;
+  // }
+}
+
+.mat-menu-panel {
+  min-height: 0.5rem !important;
+}
+
+.mat-mdc-menu-panel {
+  // box-shadow: none !important;
+  box-shadow: var(--ds-shadow-overlay, 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31)) !important;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end !important;
+}
+
+/*display block effecting title*/
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  display: flex !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__content {
+  font-family: lato, sans-serif !important;
+}
+
+.mat-mdc-unelevated-button>.mat-icon,
+.mat-mdc-raised-button>.mat-icon,
+.mat-mdc-outlined-button>.mat-icon {
+  width: 16px !important; // oberserved in filters buttons
+}
+
+.mat-mdc-menu-item .mat-icon {
+  margin-right: 0.4rem !important;
+  display: flex;
+  align-items: center;
+}
+
+// for select width
+.mdc-menu-surface.mat-mdc-select-panel {
+  min-width: 200px;
+}
+
+// inn select label as placeholder - if it doesnt work properly override it for only inn select
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 14px !important;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY(-20px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75)) !important;
+}
+
+// calendar left and right arrows
+.mat-calendar-previous-button::after,
+.mat-calendar-next-button::after {
+  margin: 10px !important;
+}
+
+table {
+
+  // bordered table
+  &.table {
+    border: 1px solid lightgray;
+  }
+
+  &.table tr {
+    border-bottom: 1px solid lightgray;
+  }
+
+  &.table td:first-child {
+    border-left: none !important;
+  }
+
+  &.table th:first-child {
+    border-left: none !important;
+  }
+
+  &.table td {
+    border-left: 1px solid lightgray;
+    //border-right: 1px solid lightgray;
+  }
+
+  &.table th {
+    border-left: 1px solid lightgray !important;
+  }
+}
+
+// mat chips - for select options in forms
+.mat-mdc-standard-chip .mdc-evolution-chip__action--primary {
+  padding-right: 12px !important;
+}
+
+// toggle ripple size to overcome unncessary scroll
+.mat-mdc-slide-toggle .mdc-switch .mdc-switch__ripple {
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+}
+
+.mat-mdc-dialog-container mat-label {
+  font-family: "Lato" !important;
+  font-weight: 600 !important;
+  font-style: normal;
+  color: #4e525c;
+}
+
+.mdc-notched-outline__leading,
+.theme-light .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.theme-light .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--border-color) !important;
+}
+
+.theme-light .mdc-text-field--disabled .mdc-notched-outline__trailing {
+  border-color: var(--border-color) !important;
+}

@@ -1,0 +1,12 @@
+// TODO: This can be removed once it is implemented in main app component css
+.fixed-action-btn label {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  font-size: .7rem;
+}
+
+.fixed-action-btn:hover label {
+  visibility: visible;
+  opacity:1;
+}
