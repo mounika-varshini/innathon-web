@@ -1,0 +1,38 @@
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+        </ng-container>
+
+        <!-- Location Column -->
+        <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef> Location </th>
+            <td mat-cell *matCellDef="let element"> {{ element.location }} </td>
+        </ng-container>
+
+        <!-- Fuel Usage Column -->
+        <ng-container matColumnDef="fuelUsage">
+            <th mat-header-cell *matHeaderCellDef> Fuel Usage </th>
+            <td mat-cell *matCellDef="let element"> {{ element.fuelUsage }} </td>
+        </ng-container>
+
+        <!-- Maintenance Due Date Column -->
+        <ng-container matColumnDef="maintenanceDue">
+            <th mat-header-cell *matHeaderCellDef> Maintenance Due Date </th>
+            <td mat-cell *matCellDef="let element"> {{ element.maintenanceDue }} </td>
+        </ng-container>
+
+        <!-- Operational Status Column -->
+        <ng-container matColumnDef="operationalStatus">
+            <th mat-header-cell *matHeaderCellDef> Operational Status </th>
+            <td mat-cell *matCellDef="let element"> {{ element.operationalStatus }} </td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

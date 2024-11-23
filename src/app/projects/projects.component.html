@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-end">
+    <button mat-raised-button (click)="openCreateProject()">Create Project</button>
+</div>
+
+
+<ng-template #createProject>
+    <mat-dialog-titile>
+        <div class="title">Create Project</div>
+    </mat-dialog-titile>
+    <mat-dialog-content>
+        <div class="form-container">
+
+            <mat-label>Select a Location</mat-label>
+            <mat-form-field appearance="outline" class="custom-dropdown">
+                <mat-select>
+                    <mat-option *ngFor="let location of locationsData" [value]="location.value">
+                        {{ location.label }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-label>Select an Activity</mat-label>
+            <mat-form-field appearance="outline" class="custom-dropdown">
+                <mat-select>
+                    <mat-option *ngFor="let activity of activitiesData" [value]="activity.value">
+                        {{ activity.label }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button class="permissionactive">Submit</button>
+    </mat-dialog-actions>
+</ng-template>

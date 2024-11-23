@@ -1,6 +1,34 @@
-<mat-card class="inn-flex-container m-3">
-    <div class="title">hi</div>
-    <button mat-raised-button color="primary" class="ml-3">
-        <mat-icon class="icon">add</mat-icon> <span>Add</span>
-    </button>
-</mat-card>
+<mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar Navigation -->
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+        <mat-toolbar>Dashboard</mat-toolbar>
+        <mat-list>
+            <mat-list-item *ngFor="let item of navItems">
+                <div [ngClass]="selectedItem.name == item.name ? 'selected-item' : ''" class="menu-item"
+                    (click)="navItemClicked(item)">
+                    <a routerLinkActive="active" class=" mb-2">
+
+                        <div [ngClass]="selectedItem.name == item.name ? 'selected-item' : ''" class="nav-text">
+                            {{item.name}}
+                        </div>
+
+                    </a>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+
+    <!-- Main Content Area -->
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <!-- <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button> -->
+            <span>{{selectedItem.name}}</span>
+        </mat-toolbar>
+
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
